@@ -90,4 +90,6 @@ public class ProductoControlador {
         return repository.findProductosConVencimiento2024();
     }
 
+    //commit de lo que sea XD
+
 }
