@@ -1,0 +1,11 @@
+CREATE DATABASE Control2BD;
+
+USE Control2BD;
+
+CREATE TABLE Producto (
+    ID INT AUTO_INCREMENT PRIMARY KEY, 
+    Nombre VARCHAR(255),               
+    Descripcion TEXT,                
+    Cantidad INT,                   
+    FechaVencimiento DATE        
+);
