@@ -9,3 +9,10 @@ CREATE TABLE Producto (
     Cantidad INT,                   
     FechaVencimiento DATE        
 );
+--
+INSERT INTO Producto (Nombre, Descripcion, Cantidad, FechaVencimiento)
+VALUES
+    ('Producto 1', 'Descripción del Producto 1', 10, '2023-11-01'),
+    ('Producto 2', 'Descripción del Producto 2', 15, '2023-11-15'),
+    ('Producto 3', 'Descripción del Producto 3', 20, '2023-12-05'),
+    ('Producto 4', 'Descripción del Producto 4', 5, '2023-12-20');

@@ -1,13 +1,14 @@
 package com.example.cl2GonzalesRamirezBruno.demo.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
-
+@Data
+@NoArgsConstructor
+@Entity
+@Table(name = "producto")
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
