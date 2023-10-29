@@ -1,6 +1,7 @@
 package com.example.cl2GonzalesRamirezBruno.demo.controller;
 
 import com.example.cl2GonzalesRamirezBruno.demo.model.Producto;
+import com.example.cl2GonzalesRamirezBruno.demo.repository.ProductoRepository;
 import com.example.cl2GonzalesRamirezBruno.demo.service.ProductoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,9 @@ public class ProductoControlador {
 
     @Autowired
     private ProductoServicio servicio;
+
+    @Autowired
+    private ProductoRepository repository;
 
     //--------------------------------------------------------------------------------------------
     @GetMapping("/productos")
@@ -48,7 +52,7 @@ public class ProductoControlador {
             ProductoActual.setNombre(producto.getNombre());
             ProductoActual.setDescripcion(producto.getDescripcion());
             ProductoActual.setCantidad(producto.getCantidad());
-            ProductoActual.setFechaVencimiento(producto.getFechaVencimiento());
+            ProductoActual.setFecha_vencimiento(producto.getFecha_vencimiento());
 
             servicio.guardarProducto(ProductoActual);
             return new ResponseEntity<Producto>(HttpStatus.OK);
@@ -61,6 +65,29 @@ public class ProductoControlador {
     @DeleteMapping("productos/{id}")
     public void eliminarProducto(@PathVariable Integer id) {
         servicio.eliminarProducto(id);
+    }
+
+    //--------------------------------------------------------------------------------------------
+    @GetMapping("/obtenerProducto/{nombre}")
+    public ResponseEntity<Producto> obtenerProductoPorNombre(@PathVariable String nombre) {
+        Producto producto = servicio.obtenerProductoPorNombre(nombre);
+        if (producto != null) {
+            return new ResponseEntity<>(producto, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    //--------------------------------------------------------------------------------------------
+    @GetMapping("/productosEntre10y100")
+    public List<Producto> buscarProductosEntre10y100() {
+        return repository.findProductosEntre10y100();
+    }
+
+    //--------------------------------------------------------------------------------------------
+    @GetMapping("/productosConVencimiento2024")
+    public List<Producto> buscarProductosConVencimiento2024() {
+        return repository.findProductosConVencimiento2024();
     }
 
 }

@@ -28,4 +28,8 @@ public class ProductoServicio {
         productoRepository.deleteById(id);
     }
 
+    public Producto obtenerProductoPorNombre(String nombre){
+        return productoRepository.findByNombre(nombre);
+    }
+
 }

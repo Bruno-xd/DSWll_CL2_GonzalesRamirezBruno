@@ -7,10 +7,10 @@ CREATE TABLE Producto (
     Nombre VARCHAR(255),               
     Descripcion TEXT,                
     Cantidad INT,                   
-    FechaVencimiento DATE        
+    Fecha_vencimiento DATE
 );
 --
-INSERT INTO Producto (Nombre, Descripcion, Cantidad, FechaVencimiento)
+INSERT INTO Producto (Nombre, Descripcion, Cantidad, Fecha_vencimiento)
 VALUES
     ('Producto 1', 'Descripción del Producto 1', 10, '2023-11-01'),
     ('Producto 2', 'Descripción del Producto 2', 15, '2023-11-15'),

@@ -19,7 +19,7 @@ public class Producto {
     private String descripcion;
     @Column(name = "cantidad")
     private int cantidad;
-    @Column(name = "fechaVencimiento")
-    private Date fechaVencimiento;
+    @Column(name = "fecha_vencimiento")
+    private Date fecha_vencimiento;
 
 }
